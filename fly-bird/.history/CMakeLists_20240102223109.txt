@@ -1,18 +1,21 @@
-cmake_minimum_required(VERSION 3.26.3)
+cmake_minimum_required(3.26)
 
 set(CMAKE_BUILD_TYPE Debug)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+project(CppCMakeDemo LANGUAGES CXX)
+
+set( CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/build) 
+
 set(PROJECT_NAME fly-bird)
-project(${PROJECT_NAME})
-set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/build) 
 
 include_directories(include)
 add_subdirectory(src)
 
 target_link_libraries(fly-bird PRIVATE
+    mingw32
     SDL2main
     SDL2
     SDL2_image
