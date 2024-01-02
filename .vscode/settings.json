@@ -58,5 +58,7 @@
     "sdl_ttf.h": "c",
     "sdl_image.h": "c",
     "sdl.h": "c"
-  }
+  },
+  "editor.fontFamily": "JetBrains Mono, Consolas, 'Courier New', monospace",
+  "cmake.sourceDirectory": "F:/Desktop/file/Github/SDL2-Cpp-Game/fly-bird"
 }
