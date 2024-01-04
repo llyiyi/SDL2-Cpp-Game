@@ -1,0 +1,8 @@
+project (${PROJECT_NAME})
+
+aux_source_directory(. DIR_SRCS)
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+)
+add_executable (${PROJECT_NAME} ${DIR_SRCS})

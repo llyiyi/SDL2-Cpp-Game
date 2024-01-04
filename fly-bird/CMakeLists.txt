@@ -6,8 +6,11 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(PROJECT_NAME fly-bird)
-project(${PROJECT_NAME})
-set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/build) 
+project(${PROJECT_NAME}) 
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+
+find_package(SDL2 REQUIRED)
+include_directories(${SDL2_INCLUDE_DIRS})
 
 include_directories(include)
 add_subdirectory(src)

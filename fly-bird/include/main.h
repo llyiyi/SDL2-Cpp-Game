@@ -1,7 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_image.h"
-#include "SDL2/SDL_ttf.h"
-#include "SDL2/SDL_mixer.h"
+#ifndef _MAIN_H_
+#define _MAIN_H_
+
+#include "common.h"
+#include "utils/display.h"
+#include "utils/audio.h"
+#include "utils/input.h"
+#include "menu.h"
+
+#endif // _MAIN_H_
