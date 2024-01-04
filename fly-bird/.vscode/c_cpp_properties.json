@@ -4,7 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/include/",
+                "${workspaceFolder}/include/**",
                 "D:/SDL2/SDL2-2.26.0-allinone/x86_64-w64-mingw32/include"
             ],
             "defines": [
