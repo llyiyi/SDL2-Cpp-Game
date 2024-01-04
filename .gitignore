@@ -1,6 +1,6 @@
 # VSCODE
-/.history/
-/.vscode/
+.history/
+.vscode/
 build/
 
 # Prerequisites
