@@ -17,49 +17,20 @@ int main()
     app *flybird = new app("fly-bird");
 
     flybird->sound->playmusic();
-
-    TTF_Font *font_title = TTF_OpenFont("../res/font/STHUPO.TTF", 50);
-    SDL_Surface surface_title = *TTF_RenderUTF8_Blended(font_title, "Fly Bird", (SDL_Color){0, 0, 0, 255});
-    SDL_Texture *texture_title = SDL_CreateTextureFromSurface(flybird->screen->renderer, &surface_title);
-
-    SDL_Surface *surface_background = IMG_Load("../res/image/background.png");
-    SDL_Texture *texture_background = SDL_CreateTextureFromSurface(flybird->screen->renderer, surface_background);
-    SDL_Rect rect_title = {100, 100, 800, 600};
-    SDL_RenderCopy(flybird->screen->renderer, texture_background, NULL, NULL);
-    SDL_QueryTexture(texture_title, NULL, NULL, &rect_title.w, &rect_title.h);
-    SDL_RenderCopy(flybird->screen->renderer, texture_title, NULL, &rect_title);
-    SDL_RenderPresent(flybird->screen->renderer);
-
-    SDL_Event event;
+    flybird->mainmenu->showmenu();
     while (1)
     {
-        while (SDL_PollEvent(&event))
+        flybird->keyboard->handleinput();
+        if (flybird->keyboard->click)
         {
-            switch (event.type)
-            {
-            case SDL_QUIT:
-                printf("quit\n");
-                return 0;
-            case SDL_KEYDOWN:
-                printf("key down: %s\n", SDL_GetKeyName(event.key.keysym.sym));
-                break;
-            case SDL_MOUSEBUTTONDOWN:
-                printf("mouse down\n");
-                flybird->sound->playfly();
-                break;
-            default:
-                break;
-            }
+            flybird->keyboard->flushbool();
+            flybird->sound->playfly();
         }
-        fflush(stdout);
-        SDL_Delay(5);
+        if (flybird->keyboard->quit)
+        {
+            break;
+        }
     }
-
-    SDL_DestroyTexture(texture_title);
-    SDL_DestroyTexture(texture_background);
-    SDL_FreeSurface(&surface_title);
-    SDL_FreeSurface(surface_background);
-
     delete flybird;
     return 0;
 }

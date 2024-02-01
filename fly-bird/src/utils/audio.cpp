@@ -20,10 +20,10 @@ audio::audio()
 }
 audio::~audio()
 {
-    Mix_FreeChunk(beat);
+    Mix_FreeMusic(bgm);
     Mix_FreeChunk(fly);
     Mix_FreeChunk(score);
-    Mix_FreeMusic(bgm);
+    Mix_FreeChunk(beat);
     Mix_CloseAudio();
     Mix_Quit();
 }
@@ -35,15 +35,15 @@ void audio::playmusic()
 void audio::playbeat()
 {
     if (Mix_PlayChannel(-1, beat, 0) == -1)
-        handle_error("Mix_PlayChannel");
+        handle_error("Mix_Playbeat");
 }
 void audio::playfly()
 {
     if (Mix_PlayChannel(-1, fly, 0) == -1)
-        handle_error("Mix_PlayChannel");
+        handle_error("Mix_Playfly");
 }
 void audio::playscore()
 {
     if (Mix_PlayChannel(-1, score, 0) == -1)
-        handle_error("Mix_PlayChannel");
+        handle_error("Mix_Playscore");
 }
